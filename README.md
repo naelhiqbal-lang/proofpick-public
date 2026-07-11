@@ -17,7 +17,7 @@ and nothing about you leaves your browser.
 <p>
   <img alt="Manifest V3" src="https://img.shields.io/badge/Chrome-Manifest%20V3-5257c9">
   <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-strict-3178c6">
-  <img alt="Tests" src="https://img.shields.io/badge/tests-574%20passing-3f6b53">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-677%20passing-3f6b53">
   <img alt="Privacy" src="https://img.shields.io/badge/privacy-by%20design-3f6b53">
   <img alt="Remote code" src="https://img.shields.io/badge/remote%20code-none-9e4f34">
 </p>
@@ -44,10 +44,16 @@ and nothing about you leaves your browser.
 
 ![Product‑page trust panel](screenshots/product-panel.png)
 
-- **Compare** — a side‑by‑side of the alternatives a listing already surfaces, scored
-  on trust, evidence and rating, with a clear “our take”.
+- **Recommended Alternatives** — one click on a product page and ProofPick ranks the
+  strongest alternatives the listing already surfaces, side by side. The verdict comes
+  first (“We found a stronger alternative”, with the winner’s evidence), the comparison
+  table is the proof beneath it, and the winning product wears a small **ProofPick
+  Pick** badge on its image. How the alternatives were found — and when the scores
+  were computed — sits quietly at the bottom, where methodology belongs.
 
-![Compare view](screenshots/compare.png)
+![Recommended Alternatives — verdict, ranked comparison, and the ProofPick Pick](screenshots/compare.png)
+
+<sub>Product images and prices above are placeholders in a demo layout — the extension builds this comparison from the real product page.</sub>
 
 - **Works wherever you shop on Amazon** — 17 marketplaces (UK, US, DE, FR, IT, ES, NL,
   SE, BR, MX, JP, IN, AE, SG, CA, AU, IE) with locale‑aware rating and number parsing.
@@ -63,7 +69,11 @@ Star averages are noisy and easy to game. ProofPick treats each rating as *evide
    5.0 from 3 reviews scores below a 4.6 from thousands.
 2. **Weight by statistical confidence.** A lower‑confidence bound on the rating means
    the score reflects how *sure* we can be, not just the raw average.
-3. **Explain everything.** The score always comes with its reasons and an honest
+3. **Evidence keeps mattering.** Two products with the same rating don’t tie just
+   because both are popular: more reviews keep counting (with diminishing returns),
+   while a better rating always outranks a bigger crowd. Volume is confidence in the
+   rating — never a popularity prize.
+4. **Explain everything.** The score always comes with its reasons and an honest
    confidence level — and when there’s no rating, ProofPick says so instead of guessing.
 
 The result is a number you can actually trust, built from transparent statistics —
@@ -79,7 +89,7 @@ not sentiment, not paid placement, not fabricated “authenticity” claims.
   background, content).
 - **On‑page UI in Shadow DOM** — every injected badge and panel is fully style‑isolated
   from the host page, and vice‑versa.
-- **574 automated tests** across parsing, scoring, UI and safety, plus a build‑integrity
+- **677 automated tests** across parsing, scoring, UI and safety, plus a build‑integrity
   checker and a real‑Chrome verification harness that loads the packaged extension and
   asserts the worker registers and no page script is ever disturbed.
 - **Locked down by design** — a strict Content‑Security‑Policy, **no remote code, no
