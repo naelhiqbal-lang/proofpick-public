@@ -17,7 +17,7 @@ and nothing about you leaves your browser.
 <p>
   <img alt="Manifest V3" src="https://img.shields.io/badge/Chrome-Manifest%20V3-5257c9">
   <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-strict-3178c6">
-  <img alt="Tests" src="https://img.shields.io/badge/tests-677%20passing-3f6b53">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-717%20passing-3f6b53">
   <img alt="Privacy" src="https://img.shields.io/badge/privacy-by%20design-3f6b53">
   <img alt="Remote code" src="https://img.shields.io/badge/remote%20code-none-9e4f34">
 </p>
@@ -37,8 +37,22 @@ and nothing about you leaves your browser.
 - **Transparent reasons, never a black box** — every score expands into plain‑English
   “why”, plus evidence and confidence chips. A perfect rating from a handful of buyers
   is called out, not celebrated.
-- **Smart Sort** — reorder search results by real evidence with one toggle; sponsored
-  results are always grouped separately, never mixed into the merit ranking.
+- **Smart Sort** — reorder search results by real evidence with one toggle. Its control
+  lives right in Amazon’s results toolbar and **stays put when you apply Amazon’s own
+  filters** (price, Prime, brand, rating…) instead of disappearing on a refresh.
+- **Sponsored results are excluded, not ranked** — advertisements are left exactly where
+  Amazon placed them: never scored, never badged, never given a ProofPick rank, and never
+  mixed into the merit ranking or comparisons. A recommendation has to be earned.
+- **Ranking preference** — a simple choice of what ProofPick should prioritise when
+  products are closely matched: **Balanced** (the default), **Prefer Higher Ratings**, or
+  **Prefer More Review Evidence**. It tunes the *order* — Smart Sort, comparisons, the
+  recommended pick — and **never changes the Smart Score everyone sees**. When your
+  preference decides a close call, ProofPick says so plainly.
+
+![Ranking preference — choose what ProofPick prioritises, without changing the Smart Score](screenshots/ranking-preference.png)
+
+![Smart Sort with a ranking preference active, in Amazon’s results toolbar](screenshots/smart-sort-control.png)
+
 - **Product trust panel** — a full breakdown on the product page, with a fractional
   star display and honest states when a rating is missing.
 
@@ -89,9 +103,10 @@ not sentiment, not paid placement, not fabricated “authenticity” claims.
   background, content).
 - **On‑page UI in Shadow DOM** — every injected badge and panel is fully style‑isolated
   from the host page, and vice‑versa.
-- **677 automated tests** across parsing, scoring, UI and safety, plus a build‑integrity
-  checker and a real‑Chrome verification harness that loads the packaged extension and
-  asserts the worker registers and no page script is ever disturbed.
+- **717 automated tests** across parsing, scoring, ranking, UI and safety — including
+  property/grid and adversarial checks on the ranking math — plus a build‑integrity
+  checker and real‑Chrome verification harnesses that load the packaged extension and
+  assert the worker registers and no page script is ever disturbed.
 - **Locked down by design** — a strict Content‑Security‑Policy, **no remote code, no
   `eval`**, and Smart Sort that only ever repositions validated product cards (it never
   clones, injects, or re‑executes a page’s scripts).
