@@ -17,7 +17,7 @@ and nothing about you leaves your browser.
 <p>
   <img alt="Manifest V3" src="https://img.shields.io/badge/Chrome-Manifest%20V3-5257c9">
   <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-strict-3178c6">
-  <img alt="Tests" src="https://img.shields.io/badge/tests-717%20passing-3f6b53">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-742%20passing-3f6b53">
   <img alt="Privacy" src="https://img.shields.io/badge/privacy-by%20design-3f6b53">
   <img alt="Remote code" src="https://img.shields.io/badge/remote%20code-none-9e4f34">
 </p>
@@ -52,6 +52,19 @@ and nothing about you leaves your browser.
 ![Ranking preference — choose what ProofPick prioritises, without changing the Smart Score](screenshots/ranking-preference.png)
 
 ![Smart Sort with a ranking preference active, in Amazon’s results toolbar](screenshots/smart-sort-control.png)
+
+- **Value Intelligence** *(opt‑in, off by default)* — a peer‑relative read on *quality for
+  the price*. A **Value** row appears in every comparison, ranking each product against its
+  own comparable set (same currency, sponsored slots excluded). Turn it on and ProofPick
+  shows a clearly‑labelled **Value‑adjusted** score and ranking — a bounded nudge that only
+  ever breaks a genuine near‑tie, never a landslide. It **never equates “cheap” with “good”**:
+  a poorly‑reviewed bargain stays poor, and an excellent product doesn’t lose its lead to a
+  slightly cheaper rival. Value Off is byte‑for‑byte the score everyone else sees; Value On
+  is always labelled so you know exactly what changed and why.
+
+![Include Value in the Smart Score — an opt‑in, clearly‑labelled Value‑adjusted score](screenshots/value-setting.png)
+
+![Smart Sort showing a “Value included” chip when Value Intelligence is active](screenshots/value-control.png)
 
 - **Product trust panel** — a full breakdown on the product page, with a fractional
   star display and honest states when a rating is missing.
@@ -103,7 +116,7 @@ not sentiment, not paid placement, not fabricated “authenticity” claims.
   background, content).
 - **On‑page UI in Shadow DOM** — every injected badge and panel is fully style‑isolated
   from the host page, and vice‑versa.
-- **717 automated tests** across parsing, scoring, ranking, UI and safety — including
+- **742 automated tests** across parsing, scoring, ranking, value, UI and safety — including
   property/grid and adversarial checks on the ranking math — plus a build‑integrity
   checker and real‑Chrome verification harnesses that load the packaged extension and
   assert the worker registers and no page script is ever disturbed.
