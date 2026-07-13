@@ -19,7 +19,7 @@ and nothing about you leaves your browser.
 <p>
   <img alt="Manifest V3" src="https://img.shields.io/badge/Chrome-Manifest%20V3-5257c9">
   <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-strict-3178c6">
-  <img alt="Tests" src="https://img.shields.io/badge/tests-1%2C089%20passing-3f6b53">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-1%2C103%20passing-3f6b53">
   <img alt="Marketplaces" src="https://img.shields.io/badge/Amazon%20marketplaces-23-5257c9">
   <img alt="Languages" src="https://img.shields.io/badge/languages-12%20incl.%20RTL-5257c9">
   <img alt="Privacy" src="https://img.shields.io/badge/privacy-by%20design-3f6b53">
@@ -44,9 +44,12 @@ and nothing about you leaves your browser.
 - **Smart Sort** — reorder search results by real evidence with one toggle. Its control
   lives right in Amazon’s results toolbar and **stays put when you apply Amazon’s own
   filters** (price, Prime, brand, rating…) instead of disappearing on a refresh.
-- **Sponsored results are excluded, not ranked** — advertisements are left exactly where
-  Amazon placed them: never scored, never badged, never given a ProofPick rank, and never
-  mixed into the merit ranking or comparisons. A recommendation has to be earned.
+- **Sponsored results are excluded, not ranked** — advertisements are never scored, never
+  badged, never given a ProofPick rank, and never mixed into the merit ranking or
+  comparisons. A recommendation has to be earned. By default ProofPick also **hides
+  sponsored placements entirely** (a one-time notice explains this, and one switch in
+  Settings shows them again) — so out of the box, every product you see is one ProofPick
+  can analyse.
 - **Ranking preference** — a simple choice of what ProofPick should prioritise when
   products are closely matched: **Balanced** (the default), **Prefer Higher Ratings**, or
   **Prefer More Review Evidence**. It tunes the *order* — Smart Sort, comparisons, the
@@ -94,11 +97,14 @@ and nothing about you leaves your browser.
   Dutch, Polish, Swedish, Turkish, Portuguese, Arabic, Japanese), including full
   right‑to‑left support for Arabic. Amazon's own content is never translated — only
   ProofPick's. Changing language updates every open Amazon tab live, without a reload.
-- **Hide sponsored placements** *(optional, off by default)* — one switch removes entire
-  ad modules (campaign header, brand banner and all) from search results. Ads are never
-  scored either way; this only controls whether you still see them.
-- **On the roadmap** — a Deal Score (price‑history context) and opt‑in AI Review
-  Intelligence that summarises what buyers actually say.
+- **Sponsored placements hidden by default** — entire ad modules (campaign header, brand
+  banner and all) are removed from search results, since ProofPick never analyses them
+  anyway. A one‑time, fully localised notice explains the default on first use, and one
+  switch in Settings brings the ads back. Ads are never scored either way; this only
+  controls whether you still see them.
+- **On the roadmap: ProofPick Pro** — a premium tier with deeper buying tools, such as
+  AI review summaries (opt‑in, consent‑gated) and a Deal Score with price‑history
+  context. Pro deepens ProofPick; the evidence‑based Smart Score stays free.
 
 ## How the Smart Score works
 
@@ -129,7 +135,7 @@ not sentiment, not paid placement, not fabricated “authenticity” claims.
   background, content).
 - **On‑page UI in Shadow DOM** — every injected badge and panel is fully style‑isolated
   from the host page, and vice‑versa.
-- **1,089 automated tests** across parsing, scoring, ranking, value, localisation, UI and safety — including
+- **1,103 automated tests** across parsing, scoring, ranking, value, localisation, UI and safety — including
   property/grid and adversarial checks on the ranking math — plus a build‑integrity
   checker and real‑Chrome verification harnesses that load the packaged extension and
   assert the worker registers and no page script is ever disturbed.
@@ -175,7 +181,7 @@ At a glance:
 - Four transparent signals: Trust · Evidence · Rating · Value
 - "Why we recommend it" — plain‑language reasons, always
 - Smart Sort, one‑click Compare, and the ProofPick Pick
-- Sponsored placements never scored, never ranked — optionally hidden entirely
+- Sponsored placements never scored, never ranked — hidden by default (one switch shows them again)
 - 23 Amazon marketplaces · 12 languages · full RTL support
 - Private by design: no accounts, no tracking, no remote code, 2 permissions
 
@@ -183,7 +189,7 @@ At a glance:
 
 ## Status
 
-Release candidate — feature‑complete, all quality gates green (1,089 automated tests,
+Release candidate — feature‑complete, all quality gates green (1,103 automated tests,
 real‑Chrome verification), preparing the Chrome Web Store submission. This repository
 tracks the public product story; the implementation is private for now.
 
