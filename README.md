@@ -1,6 +1,8 @@
 # ProofPick
 
-**A trust‑weighted “Smart Score” for Amazon — shop by proof, not hype.**
+**Shop smarter. Buy with confidence.**
+
+*A trust‑weighted “Smart Score” for Amazon — shop by proof, not hype.*
 
 A `5.0` from 3 reviews looks better than a `4.6` from 4,000 — but it isn’t. ProofPick
 is a Manifest V3 browser extension that reads every product’s rating **and how much
@@ -17,7 +19,9 @@ and nothing about you leaves your browser.
 <p>
   <img alt="Manifest V3" src="https://img.shields.io/badge/Chrome-Manifest%20V3-5257c9">
   <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-strict-3178c6">
-  <img alt="Tests" src="https://img.shields.io/badge/tests-742%20passing-3f6b53">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-1%2C089%20passing-3f6b53">
+  <img alt="Marketplaces" src="https://img.shields.io/badge/Amazon%20marketplaces-23-5257c9">
+  <img alt="Languages" src="https://img.shields.io/badge/languages-12%20incl.%20RTL-5257c9">
   <img alt="Privacy" src="https://img.shields.io/badge/privacy-by%20design-3f6b53">
   <img alt="Remote code" src="https://img.shields.io/badge/remote%20code-none-9e4f34">
 </p>
@@ -53,18 +57,18 @@ and nothing about you leaves your browser.
 
 ![Smart Sort with a ranking preference active, in Amazon’s results toolbar](screenshots/smart-sort-control.png)
 
-- **Value Intelligence** *(opt‑in, off by default)* — a peer‑relative read on *quality for
-  the price*. A **Value** row appears in every comparison, ranking each product against its
-  own comparable set (same currency, sponsored slots excluded). Turn it on and ProofPick
-  shows a clearly‑labelled **Value‑adjusted** score and ranking — a bounded nudge that only
-  ever breaks a genuine near‑tie, never a landslide. It **never equates “cheap” with “good”**:
-  a poorly‑reviewed bargain stays poor, and an excellent product doesn’t lose its lead to a
-  slightly cheaper rival. Value Off is byte‑for‑byte the score everyone else sees; Value On
-  is always labelled so you know exactly what changed and why.
+- **Value — quality for the price** *(a standard Smart Score component, on by default and
+  individually switchable)* — a 0–100 read on how much review‑backed quality a product
+  delivers for its price, measured against a **stable reference cohort** of comparable
+  products (same kind of product, same currency, sponsored slots excluded). The same
+  product shows the same score on every surface; when Value can’t be measured, the
+  remaining signals renormalise honestly instead of guessing. It **never equates “cheap”
+  with “good”**: a poorly‑reviewed bargain stays poor, and an excellent product doesn’t
+  lose its lead to a slightly cheaper rival.
 
-![Include Value in the Smart Score — an opt‑in, clearly‑labelled Value‑adjusted score](screenshots/value-setting.png)
+![The Value setting — a standard Smart Score component, individually switchable](screenshots/value-setting.png)
 
-![Smart Sort showing a “Value included” chip when Value Intelligence is active](screenshots/value-control.png)
+![Smart Sort showing a “Value included” chip when Value contributes to the score](screenshots/value-control.png)
 
 - **Product trust panel** — a full breakdown on the product page, with a fractional
   star display and honest states when a rating is missing.
@@ -82,8 +86,17 @@ and nothing about you leaves your browser.
 
 <sub>Product images and prices above are placeholders in a demo layout — the extension builds this comparison from the real product page.</sub>
 
-- **Works wherever you shop on Amazon** — 17 marketplaces (UK, US, DE, FR, IT, ES, NL,
-  SE, BR, MX, JP, IN, AE, SG, CA, AU, IE) with locale‑aware rating and number parsing.
+- **Works wherever you shop on Amazon** — **23 marketplaces** (UK, US, CA, AU, IE, AE,
+  SG, IN, DE, IT, ES, NL, BR, FR, SE, MX, JP, BE, PL, TR, SA, EG, ZA) with locale‑aware
+  rating, number and currency parsing.
+- **Speaks your language** — the entire ProofPick UI (badges, trust panel, comparison,
+  settings) is available in **12 languages** (English, German, French, Spanish, Italian,
+  Dutch, Polish, Swedish, Turkish, Portuguese, Arabic, Japanese), including full
+  right‑to‑left support for Arabic. Amazon's own content is never translated — only
+  ProofPick's. Changing language updates every open Amazon tab live, without a reload.
+- **Hide sponsored placements** *(optional, off by default)* — one switch removes entire
+  ad modules (campaign header, brand banner and all) from search results. Ads are never
+  scored either way; this only controls whether you still see them.
 - **On the roadmap** — a Deal Score (price‑history context) and opt‑in AI Review
   Intelligence that summarises what buyers actually say.
 
@@ -116,7 +129,7 @@ not sentiment, not paid placement, not fabricated “authenticity” claims.
   background, content).
 - **On‑page UI in Shadow DOM** — every injected badge and panel is fully style‑isolated
   from the host page, and vice‑versa.
-- **742 automated tests** across parsing, scoring, ranking, value, UI and safety — including
+- **1,089 automated tests** across parsing, scoring, ranking, value, localisation, UI and safety — including
   property/grid and adversarial checks on the ranking math — plus a build‑integrity
   checker and real‑Chrome verification harnesses that load the packaged extension and
   assert the worker registers and no page script is ever disturbed.
@@ -147,10 +160,32 @@ ProofPick is **private by design**:
 Optional, clearly‑gated future features (e.g. AI review summaries) are strictly
 opt‑in and off by default — nothing is read or sent without an explicit switch.
 
+## Chrome Web Store
+
+ProofPick is being prepared for its first Chrome Web Store release. The listing will
+lead with the same promise this page makes:
+
+> **Shop smarter. Buy with confidence.**
+> A 5.0 from 3 reviews isn't better than a 4.6 from 4,000. ProofPick scores Amazon
+> products by evidence, not hype.
+
+At a glance:
+
+- 0–100 Smart Score on every search result and product page
+- Four transparent signals: Trust · Evidence · Rating · Value
+- "Why we recommend it" — plain‑language reasons, always
+- Smart Sort, one‑click Compare, and the ProofPick Pick
+- Sponsored placements never scored, never ranked — optionally hidden entirely
+- 23 Amazon marketplaces · 12 languages · full RTL support
+- Private by design: no accounts, no tracking, no remote code, 2 permissions
+
+*A store link will appear here on launch.*
+
 ## Status
 
-In active development and preparing for the Chrome Web Store. This repository tracks
-the public product story; the implementation is private for now.
+Release candidate — feature‑complete, all quality gates green (1,089 automated tests,
+real‑Chrome verification), preparing the Chrome Web Store submission. This repository
+tracks the public product story; the implementation is private for now.
 
 ## Feedback
 
